@@ -1,0 +1,325 @@
+/* --- CSS Variables based on your Palette --- */
+:root {
+    --bg-lightest: #dbece2;  /* Far Left */
+    --bg-soft: #a9dcc1;      /* 2nd Left */
+    --brand-primary: #53b185; /* Mid Green */
+    --brand-dark: #377659;    /* Mid Dark */
+    --brand-deep: #1e3f30;    /* Far Right - Text Color */
+    --white: #ffffff;
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-lightest);
+    color: var(--brand-deep);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--brand-deep);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+/* --- Header --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background: rgba(219, 236, 226, 0.9); /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--brand-primary);
+}
+
+.navbar a {
+    margin-left: 2rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.navbar a:hover {
+    color: var(--brand-primary);
+}
+
+.btn-nav {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--brand-deep);
+    border-radius: 50px;
+}
+
+.btn-nav:hover {
+    background: var(--brand-deep);
+    color: var(--white);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* --- Hero Section --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    min-height: 90vh;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.highlight {
+    color: var(--brand-primary);
+    font-style: italic;
+}
+
+.hero-btns {
+    margin-top: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(30, 63, 48, 0.2);
+}
+
+.btn-primary {
+    background-color: var(--brand-deep);
+    color: var(--white);
+    margin-right: 1rem;
+}
+
+.btn-outline {
+    border: 2px solid var(--brand-deep);
+    color: var(--brand-deep);
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 20px 0 20px 0;
+    box-shadow: 20px 20px 0px var(--brand-soft);
+}
+
+/* --- About Section --- */
+.section {
+    padding: 5rem 5%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+}
+
+.line {
+    width: 60px;
+    height: 3px;
+    background: var(--brand-primary);
+    margin: 10px auto;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.about-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+}
+
+.about-card i {
+    font-size: 2.5rem;
+    color: var(--brand-primary);
+    margin-bottom: 1rem;
+}
+
+/* --- Insta Section --- */
+.insta-section {
+    background-color: var(--bg-soft);
+}
+
+.insta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Columns */
+    gap: 1rem;
+}
+
+.insta-item {
+    overflow: hidden;
+    border-radius: 10px;
+    height: 250px;
+}
+
+.insta-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.insta-item:hover img {
+    transform: scale(1.1);
+}
+
+.insta-btn-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.btn-text {
+    font-weight: 600;
+    border-bottom: 2px solid var(--brand-deep);
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--brand-deep);
+    color: var(--bg-lightest);
+    padding: 4rem 5% 1rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-col h3 {
+    color: var(--bg-lightest);
+    margin-bottom: 1rem;
+}
+
+.footer-col h4 {
+    color: var(--brand-primary);
+    margin-bottom: 1rem;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+}
+
+.social-links a {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 3rem;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .navbar {
+        display: none; /* Add JS to toggle this */
+    }
+    .insta-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* --- Animations Class (Handled by JS) --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
