@@ -1,325 +1,530 @@
-/* --- CSS Variables based on your Palette --- */
+/* =========================================
+   1. GLOBAL STYLES
+   ========================================= */
 :root {
-    --bg-lightest: #dbece2;  /* Far Left */
-    --bg-soft: #a9dcc1;      /* 2nd Left */
-    --brand-primary: #53b185; /* Mid Green */
-    --brand-dark: #377659;    /* Mid Dark */
-    --brand-deep: #1e3f30;    /* Far Right - Text Color */
-    --white: #ffffff;
-    
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Poppins', sans-serif;
+    --primary: #4a7c59;
+    --dark: #2c3e50;
+    --light: #f4f7f2;
+    --font-main: 'Poppins', sans-serif;
+    --font-serif: 'Playfair Display', serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-main); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
 
-body {
-    font-family: var(--font-body);
-    background-color: var(--bg-lightest);
-    color: var(--brand-deep);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* --- Typography --- */
-h1, h2, h3, h4 {
-    font-family: var(--font-heading);
-    color: var(--brand-deep);
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: 0.3s;
-}
-
-/* --- Header --- */
-.header {
+/* =========================================
+   2. HERO SECTION
+   ========================================= */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    /* BACKGROUND IMAGE - Change this path if needed */
+    background-image: url('images/Gemini_Generated_Image_590n5e590n5e590n.png'); 
+    background-size: cover;
+    background-position: center;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 5%;
-    background: rgba(219, 236, 226, 0.9); /* Glassmorphism effect */
-    backdrop-filter: blur(10px);
-    position: sticky;
+    justify-content: center;
+}
+
+/* Dark overlay to make text pop */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.2); 
+}
+
+/* --- HERO CAPTION (BOTTOM TEXT) --- */
+.hero-caption {
+    position: absolute;
+    bottom: 50px; /* Distance from bottom */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.hero-caption h1 {
+    font-family: var(--font-serif);
+    font-size: 3.5rem; /* Big Size */
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.4); /* Shadow to make it readable */
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   3. HEADER (Logo + Nav + Button)
+   ========================================= */
+.header {
+    position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 0 50px; 
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; /* Spreads Logo Left, Button Right */
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+/* --- LOGO --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    z-index: 1001;
+    width: 280px;
+}
+
+.logo-img {
+    width: 8cm;
+    height: 6cm;
+    max-height: 100cm;
+    object-fit: contain; 
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* --- NAVBAR (Center) --- */
+.navbar-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1000;
 }
 
-.logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    font-family: var(--font-heading);
-    letter-spacing: 1px;
-}
-
-.logo span {
-    color: var(--brand-primary);
+.navbar {
+    background-color: #f8f9fa;
+    padding: 12px 40px;
+    border-radius: 50px;
+    display: flex;
+    gap: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: background-color 0.4s ease;
 }
 
 .navbar a {
-    margin-left: 2rem;
-    font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a4a4a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+.navbar a:hover { color: var(--primary); }
+
+/* --- ENQUIRE BUTTON (Top Right) --- */
+.btn-enquire {
+    padding: 12px 30px;
+    border: 2px solid white;
+    border-radius: 30px;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    z-index: 1002;
 }
 
-.navbar a:hover {
-    color: var(--brand-primary);
+.btn-enquire:hover {
+    background: white;
+    color: var(--primary);
 }
 
-.btn-nav {
-    padding: 0.5rem 1.5rem;
-    border: 1px solid var(--brand-deep);
-    border-radius: 50px;
+/* --- STICKY HEADER STATE (Scroll) --- */
+.header.sticky {
+    background: #ffffff;
+    height: 80px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.btn-nav:hover {
-    background: var(--brand-deep);
-    color: var(--white);
+.header.sticky .logo-img { max-height: 70px; }
+.header.sticky .navbar { background: transparent; box-shadow: none; }
+
+/* Change button color when header turns white */
+.header.sticky .btn-enquire {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.header.sticky .btn-enquire:hover {
+    background: var(--primary);
+    color: white;
 }
 
-.menu-toggle {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
+/* =========================================
+   4. REST OF SECTIONS
+   ========================================= */
+.section { padding: 80px 20px; }
+.container { max-width: 1200px; margin: 0 auto; }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title h2 { font-family: var(--font-serif); font-size: 2.5rem; margin-bottom: 15px; }
+.line { width: 60px; height: 3px; background: var(--primary); margin: 0 auto; }
+.about-text { max-width: 800px; margin: 25px auto; font-size: 1.1rem; color: #4a4a4a; }
+
+.about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
+.about-card { padding: 30px; border-radius: 15px; background: white; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: transform 0.3s; }
+.about-card:hover { transform: translateY(-10px); }
+.about-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+
+.insta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.insta-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 5px; transition: opacity 0.3s; }
+.insta-item img:hover { opacity: 0.8; }
+.insta-btn-container { text-align: center; margin-top: 30px; }
+.btn-text { color: var(--primary); font-weight: 600; font-size: 1.1rem; }
+
+.footer { background: var(--dark); color: white; padding: 60px 20px 20px; }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 40px; }
+.footer-logo { width: 180px; height: auto; margin-bottom: 20px; display: block; }
+
+.footer-col h3 { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 15px; }
+.footer-col span { color: #b8e994; }
+.footer-col h4 { margin-bottom: 20px; font-weight: 500; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a { opacity: 0.7; transition: 0.3s; }
+.footer-col ul li a:hover { opacity: 1; color: #b8e994; }
+.social-links a { display: inline-block; width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; text-align: center; line-height: 40px; margin-right: 10px; transition: 0.3s; }
+.social-links a:hover { background: var(--primary); }
+.footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem; opacity: 0.7; }
+.fade-in { opacity: 0; animation: fadeIn 1s forwards; }
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* =========================================
+   5. MOBILE RESPONSIVE
+   ========================================= */
+.menu-toggle { display: none; }
+
+@media (max-width: 768px) {
+    /* 1. Header Layout: Pushes Logo Left, Menu Right */
+    .header { 
+        height: 80px; 
+        padding: 0 20px; 
+        display: flex;
+        justify-content: space-between; /* Key for alignment */
+        align-items: center;
+    }
+    
+    /* 2. LOGO CONTAINER */
+    .logo-container { 
+        display: flex;
+        align-items: center;
+        /* Ensures container doesn't block the menu button */
+        max-width: 75%; 
+    }
+
+    /* 3. LOGO IMAGE (Your requested CM values) */
+    .logo-img { 
+        width: 10cm;  /* As requested */
+        height: 5cm;  /* As requested */
+        
+        /* IMPORTANT: This keeps the menu button visible on small phones */
+        max-width: 100%; 
+        object-fit: contain; 
+        
+        /* Optional: Moves it slightly left to maximize space */
+        margin-left: -10px; 
+    }
+
+    /* Hide Enquire Button on Mobile */
+    .btn-enquire { display: none; } 
+
+    /* Mobile Text Size */
+    .hero-caption h1 { font-size: 2.2rem; bottom: 30px; }
+
+    /* Mobile Menu Dropdown */
+    .navbar-container { position: static; transform: none; }
+    .navbar {
+        display: none;
+        position: absolute; top: 80px; left: 0; width: 100%;
+        background: #ffffff; flex-direction: column; padding: 20px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1); text-align: center; gap: 20px;
+        border-radius: 0 0 15px 15px;
+    }
+    .navbar.active { display: flex; }
+    
+    /* Menu Icon */
+    .menu-toggle { display: block; font-size: 1.8rem; color: #fff; cursor: pointer; }
+    .header.sticky .menu-toggle, .navbar.active ~ .menu-toggle { color: #333; }
+}
+/* Import Main Variables if needed, or redefine basics */
+:root {
+    --primary: #4a7c59;
+    --dark: #2c3e50;
+    --light: #f4f7f2;
 }
 
-/* --- Hero Section --- */
-.hero {
+/* Shop Header */
+.shop-header {
+    background-color: cyan
+    ;
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 0; /* Adjust based on your header height */
+}
+.shop-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--dark);
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 20px 0;
+}
+
+/* Product Card */
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card-img-container {
+    height: 250px;
+    width: 100%;
+    background: #f9f9f9;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 2rem 5%;
-    min-height: 90vh;
-}
-
-.hero-content {
-    flex: 1;
-    padding-right: 2rem;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-}
-
-.highlight {
-    color: var(--brand-primary);
-    font-style: italic;
-}
-
-.hero-btns {
-    margin-top: 2rem;
-}
-
-.btn {
-    display: inline-block;
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(30, 63, 48, 0.2);
-}
-
-.btn-primary {
-    background-color: var(--brand-deep);
-    color: var(--white);
-    margin-right: 1rem;
-}
-
-.btn-outline {
-    border: 2px solid var(--brand-deep);
-    color: var(--brand-deep);
-}
-
-.hero-image {
-    flex: 1;
+    justify-content: center;
     position: relative;
 }
 
-.hero-image img {
-    width: 100%;
-    border-radius: 20px 0 20px 0;
-    box-shadow: 20px 20px 0px var(--brand-soft);
+.card-img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
 }
 
-/* --- About Section --- */
-.section {
-    padding: 5rem 5%;
+.card-details {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 3rem;
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
 }
 
-.section-title h2 {
-    font-size: 2.5rem;
+.card-weight {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 10px;
 }
 
-.line {
-    width: 60px;
-    height: 3px;
-    background: var(--brand-primary);
-    margin: 10px auto;
+.card-desc {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    flex-grow: 1;
 }
 
-.about-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    text-align: center;
-}
-
-.about-card {
-    background: var(--white);
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-
-.about-card:hover {
-    transform: translateY(-10px);
-}
-
-.about-card i {
-    font-size: 2.5rem;
-    color: var(--brand-primary);
-    margin-bottom: 1rem;
-}
-
-/* --- Insta Section --- */
-.insta-section {
-    background-color: var(--bg-soft);
-}
-
-.insta-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 Columns */
-    gap: 1rem;
-}
-
-.insta-item {
-    overflow: hidden;
-    border-radius: 10px;
-    height: 250px;
-}
-
-.insta-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s;
-}
-
-.insta-item:hover img {
-    transform: scale(1.1);
-}
-
-.insta-btn-container {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.btn-text {
-    font-weight: 600;
-    border-bottom: 2px solid var(--brand-deep);
-}
-
-/* --- Footer --- */
-.footer {
-    background-color: var(--brand-deep);
-    color: var(--bg-lightest);
-    padding: 4rem 5% 1rem;
-}
-
-.footer-content {
+.card-price-row {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
+    align-items: center;
+    margin-top: auto;
 }
 
-.footer-col {
-    flex: 1;
-    min-width: 200px;
-    margin-bottom: 1.5rem;
-}
-
-.footer-col h3 {
-    color: var(--bg-lightest);
-    margin-bottom: 1rem;
-}
-
-.footer-col h4 {
-    color: var(--brand-primary);
-    margin-bottom: 1rem;
-}
-
-.footer-col ul {
-    list-style: none;
-}
-
-.footer-col ul li {
-    margin-bottom: 0.5rem;
-}
-
-.social-links a {
-    margin-right: 1rem;
+.price {
     font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark);
 }
 
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding-top: 1.5rem;
-    text-align: center;
-    font-size: 0.8rem;
+.btn-add {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s;
 }
 
-/* --- Responsive --- */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
-    .hero-content {
-        padding-right: 0;
-        margin-bottom: 3rem;
-    }
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    .menu-toggle {
-        display: block;
-    }
-    .navbar {
-        display: none; /* Add JS to toggle this */
-    }
-    .insta-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.btn-add:hover {
+    background: #3a6346;
 }
 
-/* --- Animations Class (Handled by JS) --- */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* Dummy Card Style */
+.dummy-card {
+    opacity: 0.7;
+    pointer-events: none; /* Cannot click dummy items */
+}
+.dummy-badge {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: #ccc;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 0.7rem;
+    border-radius: 4px;
 }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* --- CART STYLES --- */
+.cart-icon-container {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--dark);
+}
+.cart-badge {
+    position: absolute;
+    top: -8px; right: -8px;
+    background: var(--primary);
+    color: white;
+    font-size: 0.7rem;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+.cart-sidebar {
+    position: fixed;
+    top: 0; right: -400px; /* Hidden initially */
+    width: 350px;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    z-index: 2000;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.open { right: 0; }
+
+.cart-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-items {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #f5f5f5;
+    padding-bottom: 10px;
+}
+
+.item-info h4 { font-size: 0.95rem; margin-bottom: 5px; }
+.item-info span { font-size: 0.85rem; color: #777; }
+
+.item-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qty-btn {
+    background: #eee;
+    border: none;
+    width: 25px; height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.cart-footer {
+    padding: 20px;
+    background: #f9f9f9;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.btn-whatsapp {
+    width: 100%;
+    background: #25D366; /* WhatsApp Green */
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.btn-whatsapp:hover { background: #1ebc57; }
+
+.cart-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1999;
+    display: none;
+}
+.cart-overlay.open { display: block; }
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .cart-sidebar { width: 100%; right: -100%; }
+}
+/* Add this to shop.css */
+.badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #4a7c59; /* This is your brand Green */
+    color: white;
+    padding: 5px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 20px;
+    z-index: 10;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
