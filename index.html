@@ -3,106 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-Nurture | Nature's Green Gold</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .hero-section {
-            position: relative;
-            height: 100vh;
-            width: 100%;
-            /* REPLACE WITH YOUR IMAGE PATH */
-            background-image: url('Gemini_Generated_Image_590n5e590n5e590n.png'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        /* Dark Gradient Overlay for text readability */
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 50%);
-        }
-
-        .hero-text {
-            position: absolute;
-            bottom: 80px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            color: #ffffff;
-            z-index: 2;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Centers the badge and text */
-            animation: fadeInUp 1.5s ease-out forwards;
-        }
-
-        /* --- THE NEW LAUNCH BADGE --- */
-        .launch-badge {
-            background-color: #4a7c59; /* Your Brand Green */
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px; /* Pill shape */
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 2px; /* Premium spacing */
-            text-transform: uppercase;
-            margin-bottom: 20px; /* Space between badge and big text */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.2);
-            display: inline-block;
-        }
-
-        .hero-text h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            margin: 0;
-            line-height: 1.1;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-
-        .highlight {
-            color: #76c085; /* Light Green for contrast */
-            font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            .hero-text h1 { font-size: 2.5rem; }
-            .hero-text { bottom: 50px; }
-            .launch-badge { font-size: 0.75rem; padding: 6px 15px; }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <title>V Nurture | Nature's Green Gold</title>
+    <link rel="icon" type="image/png" href="fv.png"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div class="hero-section">
-        <div class="hero-text">
-            <div class="launch-badge">Launching Soon</div>
-            
-            <h1>Revitalize with <br> <span class="highlight">Nature's Green Gold</span></h1>
+    <div id="loader">
+        <div class="spinner">
+            <i class="fas fa-leaf"></i>
         </div>
+        <p>Nurturing Nature...</p>
     </div>
 
+    <nav class="floating-island">
+        <div class="nav-left">
+            <div class="logo-container">
+                <span>V</span><span class="hname">Nurture</span>
+            </div>
+        </div>
+        
+        <div class="nav-center">
+            <a href="index.html" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="shops.html">Store</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-right">
+            <a href="#contact" class="btn-support">Enquire</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            
+            <div class="hero-logo-wrapper">
+                <img src="Purely Nurtured by Nature.png" alt="V Nurture Logo">
+            </div>
+
+            <span class="tagline">Pure & Organic</span>
+            <h1>Revitalize with <br> <span class="highlight">Nature's Green Gold</span></h1>
+            <a href="shops.html" class="cta-btn">Shop Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </header>
+
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Rooted in Friendship,<br>Grown by Nature</h2>
+                    <p>V Nurture was born from a simple idea shared between friends: <strong>wellness shouldn't be complicated.</strong></p>
+                    <p>We personally partner with <strong>organic farmers in Gujarat</strong>. Our Moringa is grown without harmful chemicals, hand-harvested, and sun-dried.</p>
+                    <div class="features">
+                        <div class="feat"><i class="fas fa-map-marker-alt"></i> Sourced in Gujarat</div>
+                        <div class="feat"><i class="fas fa-leaf"></i> 100% Organic</div>
+                        <div class="feat"><i class="fas fa-wallet"></i> Affordable</div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="img1.png" alt="Healthy Greens">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-content">
+            <div class="footer-col">
+                <h3>V Nurture</h3>
+                <p>Revitalizing lives with nature's best.</p>
+                <div class="fssai-box">
+                    <img src="fssai.png" alt="FSSAI Logo" style="height: 80px; background: white; padding: 10px; border-radius: 8px; margin-top:15px;">
+                    <p style="font-size: 0.9rem; margin-top: 5px;">Lic. No. <strong>21226182000057</strong></p>
+                </div>            
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:vnurture8@gmail.com">vnurture8@gmail.com</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/919731544680">+91 97315 44680</a></p>
+                <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/v_nurture_/" target="_blank">@v_nurture_</a></p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 V Nurture. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
