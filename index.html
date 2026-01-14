@@ -3,135 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-Nurture | Healthy & Affordable</title>
+    <title>V-Nurture | Nature's Green Gold</title>
     
-    <link rel="icon" type="image/png" href="Comming (5).png"> 
-
-    <link rel="stylesheet" href="style.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            /* REPLACE WITH YOUR IMAGE PATH */
+            background-image: url('Gemini_Generated_Image_590n5e590n5e590n.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Dark Gradient Overlay for text readability */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 50%);
+        }
+
+        .hero-text {
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #ffffff;
+            z-index: 2;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers the badge and text */
+            animation: fadeInUp 1.5s ease-out forwards;
+        }
+
+        /* --- THE NEW LAUNCH BADGE --- */
+        .launch-badge {
+            background-color: #4a7c59; /* Your Brand Green */
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px; /* Pill shape */
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 2px; /* Premium spacing */
+            text-transform: uppercase;
+            margin-bottom: 20px; /* Space between badge and big text */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+            display: inline-block;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin: 0;
+            line-height: 1.1;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .highlight {
+            color: #76c085; /* Light Green for contrast */
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text { bottom: 50px; }
+            .launch-badge { font-size: 0.75rem; padding: 6px 15px; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
 
-    <section id="home" class="hero">
-        
-        <header class="header">
-            <a href="index.html" class="logo-container">
-                <img src="Purely Nurtured by Nature (1).svg" alt="V-Nurture Logo" class="logo-img">
-            </a>
-
-            <div class="navbar-container">
-                <nav class="navbar">
-                    <a href="index.html">Home</a>
-                    <a href="#about">Our Story</a>
-                    <a href="shops.html">Shop</a> 
-                    <a href="#insta">Social</a>
-                    <a href="#contact">Contact</a>
-                </nav>
-            </div>
-
-            <a href="#contact" class="btn-enquire">Enquire Now</a>
-
-            <div class="menu-toggle" id="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-        </header>
-
-        <div class="hero-caption">
-            <h1>Revitalize with <br>Nature's Green Gold</h1>
+    <div class="hero-section">
+        <div class="hero-text">
+            <div class="launch-badge">Launching Soon</div>
+            
+            <h1>Revitalize with <br> <span class="highlight">Nature's Green Gold</span></h1>
         </div>
+    </div>
 
-    </section>
-
-    <section id="about" class="section about">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2>From Friendship to Farm-Fresh</h2>
-                <div class="line"></div>
-                
-                <p class="about-text">
-                    It didn't start as a business plan. It started as a conversation between friends who missed the taste of <em>real</em> food. 
-                    <br><br>
-                    We realized that somewhere along the way, "healthy" became expensive and "affordable" meant compromising on quality. 
-                    We refused to accept that. Fueled by a shared passion and a leap of faith, we set out on a journey to find the purest sources. 
-                    <br><br>
-                    V-Nurture is simply our promise to you: To bring the same premium, farm-fresh ingredients we want for our own families, directly to your table. 
-                    No shortcuts. No hidden layers. Just the goodness of nature, delivered by friends who care.
-                </p>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-card fade-in">
-                    <i class="fas fa-leaf"></i>
-                    <h3>Purely Sourced</h3>
-                    <p>Hand-picked from farms that respect the earth as much as we do.</p>
-                </div>
-                <div class="about-card fade-in">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <h3>Honest Quality</h3>
-                    <p>Premium nutrition shouldn't be a luxury. We make it accessible.</p>
-                </div>
-                <div class="about-card fade-in">
-                    <i class="fas fa-users"></i>
-                    <h3>Community First</h3>
-                    <p>Born from friendship, growing through your trust.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="insta" class="section insta-section">
-        <div class="container">
-            <div class="section-title fade-in">
-                <h2>@V_Nurture_</h2>
-                <p>Join our green community on Instagram</p>
-            </div>
-            <div class="insta-grid fade-in">
-                <div class="insta-item"><img src="https://images.unsplash.com/photo-1515488042361-25f4682f3877?auto=format&fit=crop&w=400&q=80" alt="Insta 1"></div>
-                <div class="insta-item"><img src="https://images.unsplash.com/photo-1520262494112-96615f06101f?auto=format&fit=crop&w=400&q=80" alt="Insta 2"></div>
-                <div class="insta-item"><img src="https://images.unsplash.com/photo-1596525992850-93661eb1df72?auto=format&fit=crop&w=400&q=80" alt="Insta 3"></div>
-                <div class="insta-item"><img src="https://images.unsplash.com/photo-1584589167171-541ce45f1eea?auto=format&fit=crop&w=400&q=80" alt="Insta 4"></div>
-            </div>
-            <div class="insta-btn-container">
-                <a href="https://www.instagram.com/v_nurture_/" class="btn btn-text" target="_blank">Follow Us <i class="fab fa-instagram"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-col">
-                <a href="index.html">
-                    <img src="images/Purely Nurtured by Nature (1).svg" alt="V-Nurture Footer Logo" class="footer-logo">
-                </a>
-                <p>Bringing the goodness of nature to your doorstep.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shops.html">Shop</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Connect</h4>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/v_nurture_/"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 V-Nurture. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
-
